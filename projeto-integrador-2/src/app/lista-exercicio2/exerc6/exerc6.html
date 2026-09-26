@@ -1,0 +1,11 @@
+<p>exerc6 works!</p>
+<ul *ngIf="nomes.length > 0">
+  <li *ngFor="let nome of nomes; let i = index">{{ i + 1 }} - {{ nome }}</li>
+</ul>
+<p *ngIf="nomes.length === 0">Nenhum nome cadastrado</p>
+
+<p>Total de nomes: {{ nomes.length }}</p>
+
+<button (click)="removerUltimo()">Remover último</button>
+<button (click)="limparLista()">Limpar lista</button>
+<button (click)="restaurarLista()">Restaurar lista</button>

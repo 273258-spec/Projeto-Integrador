@@ -1,0 +1,50 @@
+<p>exerc15 works!</p>
+<h2>Painel de Projetos Integradores</h2>
+
+<button (click)="mostrarConcluidos = !mostrarConcluidos">
+    {{ mostrarConcluidos ? 'Ocultar concluídos' : 'Mostrar concluídos' }}
+</button>
+
+<p>Total de projetos: {{ totalProjetos }}</p>
+<p>Projetos concluídos: {{ totalConcluidos }}</p>
+
+@if (projetos.length === 0) {
+<p>Nenhum projeto cadastrado</p>
+} @else {
+<ul>
+    @for (projeto of projetos; track projeto.id; let i = $index) {
+    @if (mostrarConcluidos || projeto.status !== 'concluido') {
+    <li [ngClass]="'status-' + projeto.status">
+
+        <strong>{{ i + 1 }} - {{ projeto.titulo }}</strong> ({{ projeto.equipe }})
+        <br>
+
+        @if (projeto.nota !== null) {
+        <span [class.destaque]="projeto.nota >= 7" [class.alerta]="projeto.nota < 6">
+            Nota: {{ projeto.nota }}
+        </span>
+        } @else {
+        <span>Nota ainda não definida</span>
+        }
+        <br>
+        Status: {{ projeto.status }}
+        @if (projeto.status === 'concluido') {
+        <span> — Projeto entregue</span>
+        }
+        <br>
+
+        <label>
+            Alterar status:
+            <select [ngModel]="projeto.status" (ngModelChange)="alterarStatus(projeto, $event)">
+                <option value="planejamento">Planejamento</option>
+                <option value="desenvolvimento">Desenvolvimento</option>
+                <option value="testes">Testes</option>
+                <option value="concluido">Concluído</option>
+            </select>
+        </label>
+
+    </li>
+    }
+    }
+</ul>
+}

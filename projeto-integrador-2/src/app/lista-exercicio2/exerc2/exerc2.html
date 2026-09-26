@@ -1,0 +1,8 @@
+<p>exerc2 works!</p>
+
+<p *ngIf="usuarioLogado; else deslogado">Usuário autenticado</p>
+<ng-template #deslogado>
+  <p>Acesso não autorizado</p>
+</ng-template>
+
+<button (click)="alternarLogin()">{{ usuarioLogado ? 'Sair' : 'Entrar' }}</button>

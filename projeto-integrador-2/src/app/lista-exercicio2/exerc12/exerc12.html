@@ -1,0 +1,13 @@
+<p>exerc12 works!</p>
+<input [(ngModel)]="novoNome" placeholder="Nome do produto">
+<input [(ngModel)]="novaQuantidade" type="number" placeholder="Quantidade">
+<button (click)="cadastrar()">Cadastrar</button>
+
+<p *ngIf="mensagemErro">{{ mensagemErro }}</p>
+
+<ul>
+  <li *ngFor="let p of produtos">
+    {{ p.nome }} - {{ p.quantidade }}
+    <button (click)="excluir(p)">Excluir</button>
+  </li>
+</ul>

@@ -1,0 +1,41 @@
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  background-color: #f4f4f4;
+}
+
+.status-planejamento {
+  border-left: 4px solid #999;
+}
+
+.status-desenvolvimento {
+  border-left: 4px solid #2196f3;
+}
+
+.status-testes {
+  border-left: 4px solid #ff9800;
+}
+
+.status-concluido {
+  border-left: 4px solid #4caf50;
+}
+
+.destaque {
+  color: green;
+  font-weight: bold;
+}
+
+.alerta {
+  color: red;
+  font-weight: bold;
+}
+
+select {
+  margin-top: 6px;
+}

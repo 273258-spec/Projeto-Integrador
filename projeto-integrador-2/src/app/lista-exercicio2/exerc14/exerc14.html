@@ -1,0 +1,70 @@
+<h2>Exercício 14 — Conversão para a sintaxe moderna</h2>
+
+<section>
+  <h3>Situação do usuário (com &#64;if / &#64;else)</h3>
+
+  @if (usuarioLogado) {
+    <p>Usuário autenticado</p>
+  } @else {
+    <p>Acesso não autorizado</p>
+  }
+
+  <button (click)="alternarLogin()">
+    {{ usuarioLogado ? 'Sair' : 'Entrar' }}
+  </button>
+</section>
+
+<hr>
+
+<section>
+  <h3>Lista de nomes (com &#64;for)</h3>
+
+  <ul>
+    @for (nome of nomes; track nome; let i = $index; let primeiro = $first; let ultimo = $last) {
+      <li>
+        {{ i + 1 }} - {{ nome }}
+        @if (primeiro) { <span> (Primeiro da lista)</span> }
+        @if (ultimo) { <span> (Último da lista)</span> }
+      </li>
+    }
+  </ul>
+</section>
+
+<hr>
+
+<section>
+  <h3>Tratamento de lista vazia (com &#64;for / &#64;empty)</h3>
+
+  <ul>
+    @for (nome of nomesRemoviveis; track nome; let i = $index) {
+      <li>{{ i + 1 }} - {{ nome }}</li>
+    } @empty {
+      <p>Nenhum nome cadastrado</p>
+    }
+  </ul>
+
+  <p>Total de nomes: {{ nomesRemoviveis.length }}</p>
+
+  <button (click)="removerUltimo()">Remover último</button>
+  <button (click)="limparLista()">Limpar lista</button>
+  <button (click)="restaurarLista()">Restaurar lista</button>
+</section>
+
+<hr>
+
+<section>
+  <h3>Diferenças percebidas</h3>
+  <ol>
+    <li>
+      O <code>&#64;if</code>/<code>&#64;else</code> é uma sintaxe de bloco nativa do compilador:
+      não precisa de asterisco (<code>*ngIf</code>) nem de um <code>&lt;ng-template&gt;</code>
+      separado para o "senão" — o <code>&#64;else</code> já resolve isso dentro do mesmo bloco.
+    </li>
+    <li>
+      O <code>&#64;for</code> exige obrigatoriamente uma expressão <code>track</code>, o que evita
+      esquecer a otimização de performance, e já traz o bloco <code>&#64;empty</code> embutido —
+      eliminando a necessidade de combinar manualmente <code>*ngIf</code> com <code>*ngFor</code>
+      (como foi feito no Exercício 6 original) só para tratar a lista vazia.
+    </li>
+  </ol>
+</section>

@@ -1,0 +1,12 @@
+<p>exerc11 works!</p>
+<button (click)="somenteDisponiveis = !somenteDisponiveis">
+  {{ somenteDisponiveis ? 'Mostrar todos' : 'Mostrar somente disponíveis' }}
+</button>
+
+<ul>
+  <ng-container *ngFor="let p of produtos">
+    <li *ngIf="!somenteDisponiveis || p.quantidade > 0">
+      {{ p.nome }} - {{ p.quantidade }}
+    </li>
+  </ng-container>
+</ul>

@@ -1,0 +1,25 @@
+<p>exerc13 works!</p>
+<h2>Lista de Tarefas</h2>
+
+<p *ngIf="tarefas.length === 0">Nenhuma tarefa cadastrada</p>
+
+<ul>
+  <li *ngFor="let tarefa of tarefas"
+      [ngClass]="'prioridade-' + tarefa.prioridade"
+      [class.concluida]="tarefa.concluida">
+
+    <strong>{{ tarefa.titulo }}</strong> — Responsável: {{ tarefa.responsavel }}
+    <br>
+    Prioridade: {{ tarefa.prioridade }}
+    <br>
+    Situação: {{ tarefa.concluida ? 'Concluída' : 'Pendente' }}
+
+    <button (click)="alterarSituacao(tarefa)">Alterar situação</button>
+  </li>
+</ul>
+
+<hr>
+
+<p>Total de tarefas: {{ totalTarefas }}</p>
+<p>Tarefas concluídas: {{ totalConcluidas }}</p>
+<p>Tarefas pendentes: {{ totalPendentes }}</p>

@@ -1,0 +1,9 @@
+<p>exerc10 works!</p>
+<div *ngFor="let p of produtos">
+  <span [style.font-weight]="p.promocao ? 'bold' : 'normal'">{{ p.nome }}</span>
+  <span [ngStyle]="{ color: p.promocao ? 'red' : 'black' }">{{ p.preco | currency:'BRL' }}</span>
+  <p *ngIf="p.promocao">Produto em promoção</p>
+  <button (click)="alternarPromocao(p)">
+    {{ p.promocao ? 'Desativar promoção' : 'Ativar promoção' }}
+  </button>
+</div>

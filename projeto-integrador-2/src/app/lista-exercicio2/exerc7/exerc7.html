@@ -1,0 +1,12 @@
+<p>exerc7 works!</p>
+<ul>
+  <li *ngFor="let d of disciplinas; let par = even; let impar = odd; let primeiro = first; let ultimo = last"
+      [ngClass]="{
+        'cor-par': par,
+        'cor-impar': impar,
+        'primeira-disciplina': primeiro,
+        'ultima-disciplina': ultimo
+      }">
+    {{ d }}
+  </li>
+</ul>

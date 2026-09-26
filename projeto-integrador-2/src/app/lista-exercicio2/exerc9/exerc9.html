@@ -1,0 +1,6 @@
+<p>exerc9 works!</p>
+<ul>
+  <li *ngFor="let p of produtos" [ngClass]="classeEstoque(p)">
+    {{ p.nome }} - {{ textoEstoque(p) }}
+  </li>
+</ul>

@@ -1,0 +1,9 @@
+<p>exerc8 works!</p>
+<ul>
+  <li *ngFor="let p of produtos; let i = index">
+    {{ i + 1 }} - {{ p.nome }} |
+    Preço: {{ p.preco | currency:'BRL' }} |
+    Qtd: {{ p.quantidade }} |
+    Total em estoque: {{ valorTotal(p) | currency:'BRL' }}
+  </li>
+</ul>
